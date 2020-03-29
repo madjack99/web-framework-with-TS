@@ -3,5 +3,11 @@ import { User } from './models/User';
 
 const user = User.buildUser({ name: 'Name', age: 20 });
 
-const form = new UserForm(document.getElementById('root'), user);
-form.render();
+const root = document.getElementById('root');
+
+if (root) {
+  const form = new UserForm(root, user);
+  form.render();
+} else {
+  throw new Error('Element not found');
+}
